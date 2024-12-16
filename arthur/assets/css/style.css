@@ -1,0 +1,440 @@
+/* Variables */
+*,
+*::before,
+*::after {
+  --clr-nintendo: #E1131F;
+  --clr-nintendo--soft: #EE5257;
+  --clr-bleu: #27A0CE;
+  --clr-blanc: #FFF;
+  --clr-noir: #000;
+  --clr-gris: #D8D8D8;
+  --gutter: 20px;
+  --spacer: 8px;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--clr-gris);
+  background-image: url(../background.png);
+  overflow: hidden;
+  font-size: 10px;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.open-sans-400 {
+  font-weight: 400;
+  font-variation-settings:
+    "wdth" 400;
+}
+
+.open-sans-600 {
+  font-weight: 600;
+  font-variation-settings:
+    "wdth" 600;
+}
+
+.open-sans-800 {
+  font-weight: 800;
+  font-variation-settings:
+    "wdth" 800;
+}
+
+/* HELPER */
+.helper--center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* SVG HELPER */
+.svg--white {
+  fill: var(--clr-blanc);
+}
+
+.svg--nintendo--soft {
+  fill: var(--clr-nintendo--soft);
+}
+
+/* CUT SCENE */
+.cut-scene__button {
+  all: unset;
+  width: 200px;
+  height: 200px;
+  cursor: pointer;
+}
+
+.cut-scene__button.is-animated {
+  animation:
+    .5s ease-in-out forwards buttonBounce,
+    1s ease-in-out .5s forwards buttonRotationAndDisappear;
+}
+
+@keyframes buttonBounce {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(2);
+  }
+
+  50% {
+    transform: scale(.75);
+  }
+
+  75% {
+    transform: scale(1.25);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes buttonRotationAndDisappear {
+  0% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(720deg);
+    opacity: 0;
+  }
+}
+
+#cut-scene {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transform: rotate(20deg) translate(-2%, 41%) scale(2);
+  z-index: 10;
+}
+
+#cut-scene > div {
+  flex: 1;
+  background-color: var(--clr-nintendo--soft);
+  border: 10px solid var(--clr-blanc);
+}
+
+.cut-scene__left-panel.is-animated {
+  animation: 1.5s ease-in-out 1.2s forwards opentheleftdoor;
+}
+
+.cut-scene__right-panel.is-animated {
+  animation: 1.5s ease-in-out 1.2s forwards opentherightdoor;
+}
+
+@keyframes opentheleftdoor {
+  from {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(-100%)
+  }
+}
+
+@keyframes opentherightdoor {
+  from {
+    transform: translateX(0)
+  }
+
+  to {
+    transform: translateX(100%)
+  }
+}
+
+/* Container */
+#container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  z-index: 5;
+}
+
+/* Nintendo Switch */
+#switch {
+  width: 70%;
+}
+
+#switch svg {
+  overflow: visible;
+}
+
+#Manette_x5F_bleu,
+#Manette_x5F_rouge {
+  opacity: 0;
+}
+
+#Manette_x5F_bleu.is-animated {
+  animation: .75s ease-in-out .5s forwards controllerPlugIn;
+}
+
+#Manette_x5F_rouge.is-animated {
+  animation: .75s ease-in-out .8s forwards controllerPlugIn;
+}
+
+@keyframes controllerPlugIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-250px);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#Loading_x5F_bar {
+  opacity: 0;
+}
+
+#Loading_x5F_bar.is-visible {
+  animation: .5s ease-in-out forwards progressBarContainerShow;
+}
+
+@keyframes progressBarContainerShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#Loading_x5F_bar.is-hidden {
+  animation: .5s ease-in-out forwards progressBarContainerHide;
+}
+
+@keyframes progressBarContainerHide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+#Loading_x5F_bar #Progress {
+  width: 0;
+}
+
+#Loading_x5F_bar #Progress.is-animated {
+  animation: 3s linear .5s forwards progressBarLoading;
+}
+
+@keyframes progressBarLoading {
+  from {
+    width: 0;
+  }
+
+  to {
+    width: 310.7px;
+  }
+}
+
+#Check.is-animated {
+  animation: 1.5s ease-in-out .5s forwards checkShow;
+}
+
+@keyframes checkShow {
+  0% {
+    fill: transparent;
+    stroke-dashoffset: 594.6768798828125;
+  }
+
+  80% {
+    fill: transparent;
+    stroke-dashoffset: 0;
+  }
+
+  100% {
+    fill: var(--clr-blanc);
+    stroke-dashoffset: 0;
+  }
+}
+
+#Check.is-hidden {
+  fill: var(--clr-blanc);
+  stroke-dashoffset: 0;
+  animation: .25s ease-in-out forwards checkHide;
+}
+
+@keyframes checkHide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+#DLC {
+  opacity: 0;
+}
+
+#DLC.is-animated {
+  animation: .5s ease-in-out .5s forwards dlcShow;
+}
+
+@keyframes dlcShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Textes prompt */
+#text-prompt {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  padding-inline: calc(var(--spacer) * 2);
+  top: calc(var(--spacer) * 6);
+  text-align: center;
+}
+
+#text-prompt h1 {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--gutter) / 2);
+  margin-bottom: .5em;
+  max-width: 100%;
+  background-image: linear-gradient(90deg,#de5703,#4e0000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 4rem;
+  opacity: 0;
+}
+
+#text-prompt h1.is-animated {
+  animation: .5s ease-in-out 1.5s forwards titleShow;
+}
+
+@keyframes titleShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+#text-prompt h1::before,
+#text-prompt h1::after {
+  content: '';
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  aspect-ratio: 12.5;
+  background-image: url('../border.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#text-prompt h1::after {
+  transform: scale(-1);
+}
+
+#text-prompt p {
+  opacity: 0;
+}
+
+#text-prompt #paragraphe-1.is-animated {
+  animation: .5s ease-in-out forwards paragraphShow;
+}
+
+#text-prompt #paragraphe-1.is-hiding {
+  animation: .5s ease-in-out forwards paragrapheHide;
+}
+
+#text-prompt #paragraphe-2.is-animated {
+  animation: .5s ease-in-out 1.85s forwards paragraphShow;
+}
+
+@keyframes paragraphShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes paragrapheHide {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+/* Logo du DLC */
+#logo-dlc {
+  position: absolute;
+  top: 564px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+}
+
+#logo-dlc img {
+  max-width: 65%;
+  margin: auto;
+  display: block;
+  opacity: 0;
+}
+
+#logo-dlc img.is-animated {
+  animation: .5s ease-in-out .5s forwards dlcLogoShow;
+}
+
+@keyframes dlcLogoShow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
