@@ -1,0 +1,145 @@
+/* Variables */
+*,
+*::before,
+*::after {
+  --clr-amber-lighter: #efa53e;
+  --clr-amber: #8f580b;
+  --clr-amber-darker: #070400;
+  --clr-blanc: #FFF;
+  --clr-noir: #000;
+  --clr-gris: #D8D8D8;
+  --gutter: 20px;
+  --spacer: 8px;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--clr-amber-darker);
+  font-size: 10px;
+  color: var(--clr-blanc);
+}
+
+#app {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#container {
+  position: relative;
+}
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap');
+
+.open-sans {
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.open-sans-400 {
+  font-weight: 400;
+  font-variation-settings:
+    "wdth" 400;
+}
+
+.open-sans-600 {
+  font-weight: 600;
+  font-variation-settings:
+    "wdth" 600;
+}
+
+.open-sans-800 {
+  font-weight: 800;
+  font-variation-settings:
+    "wdth" 800;
+}
+
+.domine {
+  font-family: "Domine", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.domine-400 {
+  font-weight: 400;
+  font-variation-settings:
+    "wdth" 400;
+}
+
+.domine-700 {
+  font-weight: 700;
+  font-variation-settings:
+    "wdth" 700;
+}
+
+/* HELPER */
+.helper--center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+}
+
+/* SVG HELPER */
+.svg--white {
+  fill: var(--clr-blanc);
+}
+
+.svg-stroke--white {
+  stroke: var(--clr-blanc);
+}
+
+.svg--amber {
+  fill: var(--clr-amber);
+}
+
+.svg-stroke--amber {
+  stroke: var(--clr-amber);
+}
+
+/* Candle border */
+#candle-border {
+  position: absolute;
+  inset: 0;
+}
+
+#candle-border svg {
+  --pathLength: 2723.5;
+  width: calc(100% + 60px);
+  height: calc(100% + 60px);
+  transform: translate(-30px, -30px);
+}
+
+#candle-border path {
+  stroke-dasharray: var(--pathLength);
+  stroke-dashoffset: 0;
+}
+
+#candle-border svg.is-animated path {
+  animation: 7s linear 1s forwards candleWickApperance;
+}
+
+@keyframes candleWickApperance {
+  0% {
+    stroke-dashoffset: 0;
+  }
+
+  65%  {
+    stroke-dashoffset: var(--pathLength);
+  }
+
+  100% {
+    stroke-dashoffset: var(--pathLength);
+  }
+}
+
+/* Bon */
