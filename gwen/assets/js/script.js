@@ -3,16 +3,19 @@ let app = null;
 let candleBorderSection = null;
 let candleBorder = null;
 let candleBorderPathLength = null;
+let bonContainer = null;
 
 // Variables TimeOut
 let initTO = null;
 
 document.addEventListener('DOMContentLoaded', () => {
+  // On initialise la valeur des variables qui permettront de jouer avec le DOM
   app = document.getElementById('app');
+  candleBorderSection = document.getElementById('candle-border__container');
+  candleBorder = candleBorderSection.querySelector('svg');
+  bonContainer = document.getElementById('bon__container');
 
   // On vient chercher la taille totale du <path> de notre svg pour pouvoir l'animer correctement
-  candleBorderSection = document.getElementById('candle-border');
-  candleBorder = candleBorderSection.querySelector('svg');
   candleBorderPathLength = candleBorder.querySelector('path').getTotalLength();
   candleBorder.style.setProperty('--pathLength', candleBorderPathLength);
 
@@ -20,17 +23,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Duration 7s ; Delay : 1s
   candleBorder.classList.add('is-animated');
 
-  initTO = setTimeout(apparitionBon, 6000);
+  initTO = setTimeout(apparitionBon, 5000);
 })
 
 // function
 function apparitionBon() {
   // On supprime la section candle-border
-  candleBorderSection.remove();
+  const clearTO = setTimeout(() => {
+    candleBorderSection.remove();
+    clearTimeout(clearTO);
+  }, 1000);
 
   // On fait apparaître la section container
+  bonContainer.classList.add('is-visible');
 
+  // Au bout de x secondes on affiche la bordure sous le mot "bon"
 
-  // On nettoie le timeout
+  // Au bout de x secondes on affiche la fumée au-dessus du . en fin de phrase
+
+  // On nettoie les timeouts
   clearTimeout(initTO);
 }
