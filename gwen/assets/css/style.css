@@ -19,6 +19,7 @@ html {
 body {
   background-color: var(--clr-amber-darker);
   font-size: 10px;
+  line-height: 1.5em;
   color: var(--clr-blanc);
 }
 
@@ -34,8 +35,8 @@ body {
 }
 
 /* Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap'); */
 
 .open-sans {
   font-family: "Open Sans", sans-serif;
@@ -110,6 +111,7 @@ body {
 #candle-border {
   position: absolute;
   inset: 0;
+  z-index: 20;
 }
 
 #candle-border svg {
@@ -143,3 +145,19 @@ body {
 }
 
 /* Bon */
+#container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+#bon-container {
+  text-align: center;
+}
+
+#bon-container h1 {
+  font-size: 4rem;
+  line-height: 1.25em;
+}
