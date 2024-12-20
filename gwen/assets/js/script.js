@@ -6,7 +6,7 @@ let candleBorderPathLength = null;
 let contentSection = null;
 let bonContainer = null;
 let bonText = null;
-let choixContainer = null;
+let detailsContainer = null;
 
 // Variables TimeOut
 let initTO = null;
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   bonContainer = document.getElementById('bon__container');
   bonText = document.getElementById('bon__txt');
   bonPoint = document.getElementById('bon__point');
-  choixContainer = document.getElementById('choix__container')
+  detailsContainer = document.getElementById('details__container')
 
   // On vient chercher la taille totale du <path> de notre svg pour pouvoir l'animer correctement
   candleBorderPathLength = candleBorder.querySelector('path').getTotalLength();
@@ -77,5 +77,10 @@ function disparitionBon() {
 }
 
 function apparitionDetails() {
-
+  // Apparition du container de détails
+  detailsContainer.classList.remove('is-hidden');
+  const delayTO = setTimeout(() => {
+    detailsContainer.classList.add('is-visible');
+    clearTimeout(delayTO);
+  },200);
 }
