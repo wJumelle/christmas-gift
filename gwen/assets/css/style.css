@@ -1,4 +1,5 @@
 /* Variables */
+:root,
 *,
 *::before,
 *::after {
@@ -10,6 +11,9 @@
   --clr-gris: #D8D8D8;
   --gutter: 20px;
   --spacer: 8px;
+  --x: 0;
+  --y: 0;
+  --s: 1;
 }
 
 html {
@@ -175,40 +179,45 @@ body {
   text-align: center;
 }
 
-#bon__container span.word {
+#bon__container button.word {
+  all: unset;
+}
+
+#bon__container .word,
+#bon__container button.word {
   opacity: 0;
   filter: blur(4px);
 }
 
-#bon__container.is-visible span.word:nth-child(1) {
+#bon__container.is-visible .word:nth-child(1) {
   animation: 1.25s .1s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
-#bon__container.is-visible span.word:nth-child(2) {
+#bon__container.is-visible .word:nth-child(2) {
   animation: 1.25s .2s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
-#bon__container.is-visible span.word:nth-child(3) {
+#bon__container.is-visible .word:nth-child(3) {
   animation: 1.25s .3s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
-#bon__container.is-visible span.word:nth-child(4) {
+#bon__container.is-visible .word:nth-child(4) {
   animation: 1.25s .4s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
-#bon__container.is-visible span.word:nth-child(6) {
+#bon__container.is-visible .word:nth-child(6) {
   animation: 1.25s .5s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
-#bon__container.is-visible span.word:nth-child(7) {
+#bon__container.is-visible .word:nth-child(7) {
   animation: 1.25s .6s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
-#bon__container.is-visible span.word:nth-child(9) {
+#bon__container.is-visible .word:nth-child(9) {
   animation: 1.25s .7s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
-#bon__container.is-visible span.word:nth-child(10) {
+#bon__container.is-visible .word:nth-child(10) {
   animation: 1.25s .8s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtOpacity;
 }
 
@@ -216,6 +225,72 @@ body {
   100% {
     opacity: 1;
     filter: blur(0px);
+  }
+}
+
+#bon__container.is-hidding .word {
+  animation: 1.25s cubic-bezier(0.11, 0, 0.5, 0) forwards bonTxtHidding;
+}
+
+#bon__container.is-hidding .word:nth-child(1) {
+  --x: -2;
+  --y: -3;
+  --s: 1.1;
+}
+
+#bon__container.is-hidding .word:nth-child(2) {
+  --x: -1;
+  --y: -5;
+  --s: 1.1;
+}
+
+#bon__container.is-hidding .word:nth-child(3) {
+  --x: 0;
+  --y: -1;
+  --s: 1.1;
+}
+
+#bon__container.is-hidding .word:nth-child(4) {
+  --x: 2;
+  --y: -3;
+  --s: 1.1;
+}
+
+#bon__container.is-hidding .word:nth-child(6) {
+  --x: -6;
+  --y: 0;
+  --s: 1.1;
+}
+
+#bon__container.is-hidding .word:nth-child(7) {
+  --x: 2;
+  --y: 1;
+  --s: 1.1;
+}
+
+#bon__container.is-hidding .word:nth-child(9) {
+  --x: -2;
+  --y: 4;
+  --s: 1.1;
+}
+
+#bon__container.is-hidding .word:nth-child(10) {
+  --x: -2;
+  --y: 4;
+  --s: 1.1;
+}
+
+@keyframes bonTxtHidding {
+  from {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translate(var(--x), var(--y)) scale(var(--s));
   }
 }
 

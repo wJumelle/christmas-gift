@@ -45,9 +45,22 @@ function apparitionBon() {
   const clearBonTO = setTimeout(() => {
     bonText.classList.add('is-animated');
     bonPoint.querySelector('.smoke').classList.add('is-visible');
+
+    // On rend cliquable le mot bon pour la suite de l'animation
+    bonText.addEventListener('click', disparitionBon);
+
     clearTimeout(clearBonTO);
   }, 1625);
 
   // On nettoie les timeouts
   clearTimeout(initTO);
+}
+
+function disparitionBon() {
+  // On masque le message du bon
+  bonContainer.classList.remove('is-visible');
+  bonContainer.classList.add('is-hidding');
+
+  // On supprime l'écouteur d'événement pour éviter le spam d'animation
+  bonText.removeEventListener('click', disparitionBon);
 }
