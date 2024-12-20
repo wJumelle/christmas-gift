@@ -4,6 +4,7 @@ let candleBorderSection = null;
 let candleBorder = null;
 let candleBorderPathLength = null;
 let bonContainer = null;
+let bonText = null;
 
 // Variables TimeOut
 let initTO = null;
@@ -14,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
   candleBorderSection = document.getElementById('candle-border__container');
   candleBorder = candleBorderSection.querySelector('svg');
   bonContainer = document.getElementById('bon__container');
+  bonText = document.getElementById('bon__txt');
+  bonPoint = document.getElementById('bon__point');
 
   // On vient chercher la taille totale du <path> de notre svg pour pouvoir l'animer correctement
   candleBorderPathLength = candleBorder.querySelector('path').getTotalLength();
@@ -38,8 +41,12 @@ function apparitionBon() {
   bonContainer.classList.add('is-visible');
 
   // Au bout de x secondes on affiche la bordure sous le mot "bon"
-
   // Au bout de x secondes on affiche la fumée au-dessus du . en fin de phrase
+  const clearBonTO = setTimeout(() => {
+    bonText.classList.add('is-animated');
+    bonPoint.querySelector('.smoke').classList.add('is-visible');
+    clearTimeout(clearBonTO);
+  }, 1625);
 
   // On nettoie les timeouts
   clearTimeout(initTO);
