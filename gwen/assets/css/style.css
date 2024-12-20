@@ -21,7 +21,6 @@ html {
 }
 
 body {
-  /* background-color: var(--clr-amber-darker); */
   background:
     radial-gradient(rgb(143 88 11 / 10%) 3px, transparent 4px),
     radial-gradient(rgb(143 88 11 / 10%) 3px, transparent 4px),
@@ -298,7 +297,7 @@ body {
 
   to {
     opacity: 0;
-    filter: blur(20px);
+    filter: blur(30px);
     transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(var(--s)) rotate(calc(1deg * var(--r)));
   }
 }
@@ -319,13 +318,15 @@ body {
   left: 0;
   display: block;
   width: 0;
-  height: 2px;
+  height: 4px;
   background-color: var(--clr-blanc);
   text-decoration: underline;
 }
 
 #bon__container h1 #bon__txt.is-animated::after {
-  animation: .5s linear forwards bonTxtUnderline;
+  animation:
+    .5s linear forwards bonTxtUnderline,
+    3s 1s ease-in-out infinite bonTxtUnderlineBlink;
 }
 
 @keyframes bonTxtUnderline {
@@ -334,15 +335,27 @@ body {
   }
 }
 
+@keyframes bonTxtUnderlineBlink {
+  0%, 100% {
+    opacity: 100%
+  }
+
+  50% {
+    opacity: 0%
+  }
+}
+
 
 #bon__container h1 #bon__name {
   font-size: 7rem;
+  color: var(--clr-amber-lighter);
   line-height: 1.5em;
 }
 
 /* Smoke */
 #bon__container h1 #bon__point {
   margin-left: 10px;
+  color: var(--clr-amber-lighter);
 }
 
 .smoke.is-visible {
@@ -430,4 +443,9 @@ body {
 
 .smoke .s-9 {
 	animation: smokeRight 7s 6.3s infinite
+}
+
+/* Details */
+#details__container.is-hidden {
+  display: none;
 }

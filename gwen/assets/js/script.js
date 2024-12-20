@@ -3,8 +3,10 @@ let app = null;
 let candleBorderSection = null;
 let candleBorder = null;
 let candleBorderPathLength = null;
+let contentSection = null;
 let bonContainer = null;
 let bonText = null;
+let choixContainer = null;
 
 // Variables TimeOut
 let initTO = null;
@@ -14,9 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
   app = document.getElementById('app');
   candleBorderSection = document.getElementById('candle-border__container');
   candleBorder = candleBorderSection.querySelector('svg');
+  contentSection = document.getElementById('container');
   bonContainer = document.getElementById('bon__container');
   bonText = document.getElementById('bon__txt');
   bonPoint = document.getElementById('bon__point');
+  choixContainer = document.getElementById('choix__container')
 
   // On vient chercher la taille totale du <path> de notre svg pour pouvoir l'animer correctement
   candleBorderPathLength = candleBorder.querySelector('path').getTotalLength();
@@ -57,10 +61,21 @@ function apparitionBon() {
 }
 
 function disparitionBon() {
-  // On masque le message du bon
-  bonContainer.classList.remove('is-visible');
-  bonContainer.classList.add('is-hidding');
-
   // On supprime l'écouteur d'événement pour éviter le spam d'animation
   bonText.removeEventListener('click', disparitionBon);
+
+  // On masque le message du bon
+  // Duration : 1.25s ; Delay : 0
+  bonContainer.classList.remove('is-visible');
+  bonContainer.classList.add('is-hidding');
+  const bonContainerDeleteTO = setTimeout(() => {
+    bonContainer.remove();
+    clearTimeout(bonContainerDeleteTO);
+
+    apparitionDetails();
+  }, 1250);
+}
+
+function apparitionDetails() {
+
 }
