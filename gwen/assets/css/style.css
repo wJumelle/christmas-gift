@@ -185,6 +185,7 @@ body {
 
 #bon__container .word,
 #bon__container button.word {
+  display: inline-block;
   opacity: 0;
   filter: blur(4px);
 }
@@ -233,64 +234,72 @@ body {
 }
 
 #bon__container.is-hidding .word:nth-child(1) {
-  --x: -2;
-  --y: -3;
-  --s: 1.1;
+  --x: -40;
+  --y: -20;
+  --s: 3;
+  --r: -25;
 }
 
 #bon__container.is-hidding .word:nth-child(2) {
-  --x: -1;
-  --y: -5;
-  --s: 1.1;
+  --x: -15;
+  --y: -65;
+  --s: 1.2;
+  --r: 15;
 }
 
 #bon__container.is-hidding .word:nth-child(3) {
   --x: 0;
-  --y: -1;
-  --s: 1.1;
+  --y: -15;
+  --s: 2;
+  --r: 55;
 }
 
 #bon__container.is-hidding .word:nth-child(4) {
-  --x: 2;
-  --y: -3;
-  --s: 1.1;
+  --x: 20;
+  --y: -30;
+  --s: 4;
+  --r: -40;
 }
 
 #bon__container.is-hidding .word:nth-child(6) {
-  --x: -6;
+  --x: -30;
   --y: 0;
-  --s: 1.1;
+  --s: 1.4;
+  --r: -15;
 }
 
 #bon__container.is-hidding .word:nth-child(7) {
-  --x: 2;
-  --y: 1;
-  --s: 1.1;
+  --x: 25;
+  --y: 15;
+  --s: 2;
+  --r: 30;
 }
 
 #bon__container.is-hidding .word:nth-child(9) {
-  --x: -2;
-  --y: 4;
-  --s: 1.1;
+  --x: -25;
+  --y: 40;
+  --s: 3;
+  --r: 15;
 }
 
 #bon__container.is-hidding .word:nth-child(10) {
-  --x: -2;
-  --y: 4;
-  --s: 1.1;
+  --x: 35;
+  --y: 40;
+  --s: 3;
+  --r: 65;
 }
 
 @keyframes bonTxtHidding {
   from {
     opacity: 1;
     filter: blur(0px);
-    transform: translate(0, 0) scale(1);
+    transform: translate(0, 0) scale(1) rotate(0deg);
   }
 
   to {
     opacity: 0;
-    filter: blur(10px);
-    transform: translate(var(--x), var(--y)) scale(var(--s));
+    filter: blur(20px);
+    transform: translate(calc(var(--x) * 1px), calc(var(--y) * 1px)) scale(var(--s)) rotate(calc(1deg * var(--r)));
   }
 }
 
