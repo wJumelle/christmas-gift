@@ -176,13 +176,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 40px;
   font-size: 2.4rem;
   z-index: 5;
 }
 
 /* Nintendo Switch */
 #switch {
-  margin-bottom: 40px;
   width: 70%;
 }
 
@@ -327,8 +327,8 @@ body {
 /* Textes prompt */
 #text-prompt {
   width: 100%;
+  min-height: 315px;
   padding-inline: calc(var(--spacer) * 2);
-  margin-bottom: calc(var(--gutter) * 5);
   text-align: center;
 }
 
