@@ -458,15 +458,11 @@ body {
 
 #details__container > * {
   opacity: 0;
-  /* transform: translateY(-20px); */
-  /* filter: blur(10px); */
 }
 
 #details__container.is-visible > * {
   --delay: 0;
   opacity: 1;
-  /* transform: translateY(0); */
-  /* filter: blur(0); */
   transition-property: opacity;
   transition-delay: calc(var(--delay) * 1s);
   transition-duration: var(--animDurationOpacity);

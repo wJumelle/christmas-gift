@@ -182,6 +182,7 @@ body {
 
 /* Nintendo Switch */
 #switch {
+  margin-bottom: 40px;
   width: 70%;
 }
 
@@ -325,11 +326,9 @@ body {
 
 /* Textes prompt */
 #text-prompt {
-  position: absolute;
   width: 100%;
-  left: 0;
   padding-inline: calc(var(--spacer) * 2);
-  top: calc(var(--spacer) * 6);
+  margin-bottom: calc(var(--gutter) * 5);
   text-align: center;
 }
 
@@ -416,10 +415,6 @@ body {
 
 /* Logo du DLC */
 #logo-dlc {
-  position: absolute;
-  top: 564px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 100%;
 }
 
