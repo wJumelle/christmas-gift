@@ -346,7 +346,6 @@ body {
   }
 }
 
-
 #bon__container h1 #bon__name {
   font-size: 7rem;
   color: var(--clr-amber-lighter);
@@ -480,4 +479,34 @@ h2 {
   font-size: 2rem;
   line-height: 1.5em;
   margin-bottom: 2rem;
+}
+
+#details__container #quand_txt {
+  display: inline-block;
+  position: relative;
+  margin-top: 2em;
+  font-size: 3rem;
+  line-height: 1.5em;
+}
+
+#details__container #quand_txt::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  display: block;
+  width: 0;
+  height: 4px;
+  background-color: var(--clr-blanc);
+  text-decoration: underline;
+}
+
+#details__container #quand_txt.is-animated::after {
+  animation: .5s linear forwards bonTxtUnderline;
+}
+
+.txt-right {
+  width: 100%;
+  text-align: right;
+  display: inline-block;
 }

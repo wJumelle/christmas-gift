@@ -7,6 +7,7 @@ let contentSection = null;
 let bonContainer = null;
 let bonText = null;
 let detailsContainer = null;
+let quandText = null;
 
 // Variables TimeOut
 let initTO = null;
@@ -80,7 +81,13 @@ function apparitionDetails() {
   // Apparition du container de détails
   detailsContainer.classList.remove('is-hidden');
   const delayTO = setTimeout(() => {
+    quandText = document.getElementById('quand_txt');
+
     detailsContainer.classList.add('is-visible');
     clearTimeout(delayTO);
+
+    const qdTxtTO = setTimeout(() => {
+      quandText.classList.add('is-animated');
+    }, 3500);
   },200);
 }
